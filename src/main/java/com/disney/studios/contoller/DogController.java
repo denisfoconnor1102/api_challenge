@@ -46,6 +46,8 @@ public class DogController {
 
 //    Unfavorite is tricky, directions mention and up/down vote
 //    UI directions mention only being able to Unfavorite a Favorite which would require User tracking
+//    Conflicting Info --- One to One Client vote for picture but can only unfavorite a favorite
+//
     @RequestMapping(path="/unfav", method=RequestMethod.POST)
     public Dogs dogUnfav(@RequestBody Dog dog){
         if(inputValidation.isValid(dog)){

@@ -54,7 +54,7 @@ public class DogService {
         Dog dbDog = dogRepository.findById(dog.getId());
         int favCount = dbDog.getFavCount();
 //        Todo Can a dog have negative favorites ???
-        if(favCount>=0){
+        if(favCount>0){
             dbDog.setFavCount(favCount-1);
         } else {
             log.info("Dog picture has 0 favorites...");
