@@ -6,3 +6,6 @@ spring.datasource.url: jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=-1
 spring.datasource.username: sa
 spring.datasource.password:
 spring.jpa.hibernate.ddl-auto: create
+
+server.port: ${port:8080}
+#server.contextPath: /dogs

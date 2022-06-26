@@ -39,6 +39,18 @@
             <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.ngrok</groupId>
+            <artifactId>ngrok-api-java</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.alexdlaird</groupId>
+            <artifactId>java8-ngrok</artifactId>
+            <version>1.4.5</version>
+        </dependency>
+
 
         <!-- Testing dependencies -->
         <dependency>
