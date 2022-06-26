@@ -1,6 +1,7 @@
 package com.disney.studios.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "dogs")
@@ -10,10 +11,13 @@ public class Dog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull(message = "Breed may not be null")
     private String breed;
 
+    @NotNull(message = "picUrl may not be null")
     private String picUrl;
 
+    @NotNull(message = "favCount may not be null")
     private int favCount;
 
     public Dog() {

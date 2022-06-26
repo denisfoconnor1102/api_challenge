@@ -66,12 +66,7 @@ public class PetLoader implements InitializingBean {
         try ( BufferedReader br = new BufferedReader(new InputStreamReader(source.getInputStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                System.out.println("Here test: "+breed);
                 dogService.saveOrUpdateDogs(new Dog(breed, line, 0));
-                /* TODO: Create appropriate objects and save them to
-                 *       the datasource.
-                 */
             }
         }
     }
