@@ -48,6 +48,7 @@ public class DogController {
     }
 
 //     TODO Add current index for UI to swipe back and forth???
+//    TODO Returning Full list of the dogs after the update.  Perhaps just the updated???
     @RequestMapping(path="/fav", method=RequestMethod.POST)
     public Dogs dogFav(@RequestBody Dog dog){
         if(inputValidation.isValid(dog)){
