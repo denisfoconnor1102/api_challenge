@@ -8,11 +8,15 @@ import com.disney.studios.util.InputValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
-@RequestMapping(path = "/dogs")
+@RequestMapping(path = "/api")
 public class DogController {
 
     Logger log = LoggerFactory.getLogger(DogController.class);
@@ -23,6 +27,19 @@ public class DogController {
 
     @Autowired
     private DogService dogService;
+
+    @RequestMapping(path="/id", method = RequestMethod.GET)
+    public ResponseEntity<Dog> getDogById(@RequestParam(value = "id") Long id){
+        log.info("Get dog by id...");
+        Dog dog = dogService.findDogById(id);
+        if(dog != null){
+            return ResponseEntity.ok().body(dog);
+        } else {
+//            Todo Better standardized error handling for Exception return Responses
+            log.error("No dog info exists for id: {}", id);
+            return new ResponseEntity<>(new Dog(), HttpStatus.NOT_FOUND);
+        }
+    }
 
     @RequestMapping(path="/all", method = RequestMethod.GET)
     public Dogs getAll(){
